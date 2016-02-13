@@ -2,5 +2,8 @@
     <string name="app_name">Crumbs</string>
     <string name="action_settings">Settings</string>
     <string name="facebook_app_id">1523295254631998</string>
+    <string name="title_activity_com_parse_ui_parse_signup_fragment">
+        ComParseUiParseSignupFragmentActivity
+    </string>
 
 </resources>
