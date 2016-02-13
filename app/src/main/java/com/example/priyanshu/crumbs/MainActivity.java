@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        else if (id == R.id.action_log_out) {
+            ParseUser.logOut();
+            ParseLoginBuilder builder = new ParseLoginBuilder(this);
+            startActivityForResult(builder.build(), 0);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
