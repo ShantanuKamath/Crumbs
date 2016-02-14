@@ -213,4 +213,9 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         Intent in= new Intent(this, GuestList.class);
         startActivity(in);
     }
+
+    public void openPayment(View view) {
+        Intent in= new Intent(this, Payment.class);
+        startActivity(in);
+    }
 }

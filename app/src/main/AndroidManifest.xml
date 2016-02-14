@@ -67,11 +67,12 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".AddFriends" />
         <activity android:name=".ListRestaurant" />
-        <activity android:name=".StartOrderActivity"></activity>
-            android:theme="@style/AppTheme" />
+        <activity android:name=".StartOrderActivity" />
+        android:theme="@style/AppTheme" />
         <activity android:name=".AddFriends" />
         <activity android:name=".ListRestaurant" />
-        <activity android:name=".GuestList"></activity>
+        <activity android:name=".GuestList" />
+        <activity android:name=".Payment"></activity>
     </application>
 
 </manifest>
