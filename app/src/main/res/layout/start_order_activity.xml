@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_alignParentTop="true"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true"
     android:orientation="vertical"
     tools:context="com.example.priyanshu.crumbs.StartOrderActivity">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:clickable="true"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:src="@drawable/restaurant"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginRight="8dp"
-            />
+            android:layout_weight="1"
+            android:src="@drawable/restaurant" />
 
         <TextView
-            android:gravity="center_vertical"
             android:id="@+id/rest_text"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
-            android:layout_width="0dp"
+            android:gravity="center_vertical"
             android:text="Choose Restaurant"
             android:textColor="#000"
             android:textSize="20sp" />
@@ -37,131 +36,135 @@
 
     <ImageView
         android:id="@+id/order_rest_img"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/igray"
         android:clickable="true"
-        android:onClick="chooseRestaurant"/>
+        android:onClick="chooseRestaurant"
+        android:scaleType="centerCrop"
+        android:src="@drawable/igray" />
 
     <LinearLayout
-        android:background="#FFFFFF"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:onClick="guestlist"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
             android:src="@drawable/friend" />
 
         <TextView
-            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/numFriends"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="0dp"
+            android:gravity="center_horizontal|center_vertical"
             android:text="0"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:gravity="center_vertical"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
-            android:layout_width="0dp"
+            android:gravity="center_vertical"
             android:text="Friends Selected"
             android:textColor="#000"
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="0dp"
             android:src="@drawable/next" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="#FFFFFF"
-        android:clickable="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:onClick="updateLabel"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:onClick="updateLabel">
+        android:padding="8dp">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:src="@drawable/calender"
-            android:layout_marginRight="8dp"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/calender" />
 
 
         <TextView
-            android:gravity="center_vertical"
             android:id="@+id/date_text"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
-            android:layout_width="0dp"
+            android:gravity="center_vertical"
             android:text="Choose Date"
             android:textColor="#000"
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="0dp"
             android:src="@drawable/next" />
     </LinearLayout>
 
     <LinearLayout
-        android:background="#FFFFFF"
-        android:clickable="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:clickable="true"
         android:orientation="horizontal"
         android:padding="8dp">
 
         <ImageView
-            android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:src="@drawable/clock"
-            android:layout_marginRight="8dp"/>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/clock" />
 
 
         <TextView
-            android:gravity="center_vertical"
             android:id="@+id/time_text"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="9"
-            android:layout_width="0dp"
+            android:gravity="center_vertical"
             android:text="Choose Time"
             android:textColor="#000"
             android:textSize="20sp" />
 
         <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="0dp"
             android:src="@drawable/next" />
     </LinearLayout>
-        <Button
-            android:background="#B71C1C"
-            android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="Submit"
-            android:textColor="#FFF"
-            android:onClick="openPayment"/>
 
-    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#B71C1C"
+        android:onClick="openPayment"
+        android:text="Submit"
+        android:textColor="#FFF" />
+
+</LinearLayout>

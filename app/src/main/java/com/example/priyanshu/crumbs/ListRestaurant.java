@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +31,7 @@ import java.util.HashMap;
 public class ListRestaurant extends AppCompatActivity {
 
     ArrayList<String> names;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,16 +52,17 @@ public class ListRestaurant extends AppCompatActivity {
 
         JSONObject locationJson = new JSONObject(JsonStr);
         JSONArray locationArray = locationJson.getJSONArray(OWM_RESULTS);
-        ArrayList<String[]> result= new ArrayList<>();
-        for(int i=0;i<locationArray.length();++i){
-            JSONObject JObject= locationArray.getJSONObject(i);
+        ArrayList<String[]> result = new ArrayList<>();
+        for (int i = 0; i < locationArray.length(); ++i) {
+            JSONObject JObject = locationArray.getJSONObject(i);
             String[] result_temp = new String[2];
-            result_temp[0] =JObject.getString(OWM_GEOMETRY);
-            result_temp[1] =JObject.getString(OWM_LOCATION);
+            result_temp[0] = JObject.getString(OWM_GEOMETRY);
+            result_temp[1] = JObject.getString(OWM_LOCATION);
             result.add(result_temp);
         }
         return result;
     }
+
     public class FetchLocationTask extends AsyncTask<Void, Void, ArrayList<String[]>> {
 
         @Override
@@ -81,7 +82,7 @@ public class ListRestaurant extends AppCompatActivity {
                         .appendQueryParameter(ADDRESS_PARAM, ADDRESS_VALUE)
                         .appendQueryParameter(KEY_PARAM, KEY_VALUE)
                         .build();
-                Log.d("REST",builtUri.toString());
+                Log.d("REST", builtUri.toString());
                 URL url = new URL(builtUri.toString());
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
@@ -140,21 +141,21 @@ public class ListRestaurant extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<String[]> result) {
             if (result != null) {
-                 names = new ArrayList<>() ;
-                         ArrayList <String> address = new ArrayList<>();
-                for(int i=0;i<result.size();++i){
+                names = new ArrayList<>();
+                ArrayList<String> address = new ArrayList<>();
+                for (int i = 0; i < result.size(); ++i) {
                     names.add(result.get(i)[0]);
                     address.add(result.get(i)[1]);
                 }
 
                 String[] names_list = new String[names.size()];
                 names_list = names.toArray(names_list);
-                ArrayAdapter<String> rest_list_adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,names_list){
+                ArrayAdapter<String> rest_list_adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, names_list) {
                     @Override
                     public View getView(int position, View convertView,
                                         ViewGroup parent) {
-                        View view =super.getView(position, convertView, parent);
-                        TextView textView=(TextView) view.findViewById(android.R.id.text1);
+                        View view = super.getView(position, convertView, parent);
+                        TextView textView = (TextView) view.findViewById(android.R.id.text1);
             /*YOUR CHOICE OF COLOR*/
                         textView.setTextColor(Color.BLACK);
                         return view;
@@ -169,6 +170,7 @@ public class ListRestaurant extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -185,24 +187,24 @@ public class ListRestaurant extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.done) {
-            AutoCompleteTextView ac= (AutoCompleteTextView)findViewById(R.id.rest_name);
+            AutoCompleteTextView ac = (AutoCompleteTextView) findViewById(R.id.rest_name);
             String name;
-            if(ac.getListSelection()==-1)
-                name="Prata Wala";
+            if (ac.getListSelection() == -1)
+                name = "Prata Wala";
             else
-             name=names.get(ac.getListSelection());
+                name = names.get(ac.getListSelection());
+            Log.v("Bobey", name);
             changeRestData(name);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-    public void changeRestData(String name)
-    {
-        TextView restName = (TextView) findViewById(R.id.rest_text);
-        restName.setText(name);
-        ImageView restImg = (ImageView) findViewById(R.id.order_rest_img);
-        restImg.setImageResource(R.drawable.i);
-        finish();
+
+    public void changeRestData(String name) {
+        Log.v("Bobey", name);
+        TabBarActivity.restName.setText(name);
+        TabBarActivity.restImg.setImageResource(R.drawable.i);
+        super.onBackPressed();
     }
 }

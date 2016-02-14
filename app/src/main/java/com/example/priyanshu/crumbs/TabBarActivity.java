@@ -40,6 +40,8 @@ import java.util.Locale;
 public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageChangeListener, BaseSliderView.OnSliderClickListener {
     private SliderLayout mDemoSlider;
     final Calendar myCalendar = Calendar.getInstance();
+    public static TextView restName, numFriends;
+    public static ImageView restImg;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,7 +170,11 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
                 startActivity(intent);
             }
         });
+////////
 
+        restName= (TextView) findViewById(R.id.rest_text);
+        restImg  = (ImageView) findViewById(R.id.order_rest_img);
+        numFriends = (TextView) findViewById(R.id.numFriends);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
