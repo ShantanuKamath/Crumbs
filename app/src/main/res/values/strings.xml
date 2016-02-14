@@ -6,5 +6,6 @@
         ComParseUiParseSignupFragmentActivity
     </string>
     <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_pratyum">pratyum</string>
 
 </resources>

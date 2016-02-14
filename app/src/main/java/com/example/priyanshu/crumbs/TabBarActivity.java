@@ -5,13 +5,18 @@ import android.app.TabActivity;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -26,6 +31,7 @@ import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -46,7 +52,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         this.setNewTab(this, tabHost, "tab2", R.drawable.accountmultiple, R.id.tab2);
         this.setNewTab(this, tabHost, "tab3", R.drawable.plus, R.id.tab3);
         this.setNewTab(this, tabHost, "tab4", R.drawable.account, R.id.tab4);
-        this.setNewTab(this, tabHost, "tab5", R.drawable.settings, R.id.tab3);
+        this.setNewTab(this, tabHost, "tab5", R.drawable.settings, R.id.tab5);
 
         //tabHost.setCurrentTabByTag("tab2"); //-- optional to set a tab programmatically.
 
@@ -131,7 +137,37 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         });
 
 
+ /////// SHOW FRIENDS
 
+        ParseUser user = ParseUser.getCurrentUser();
+        ArrayList<String> Logs = (ArrayList<String>) user.get("friends");
+        if(Logs==null)
+            Logs = new ArrayList<>();
+        ArrayAdapter<String> mLogsAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, Logs) {
+            @Override
+            public View getView(int position, View convertView,
+                                ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView textView = (TextView) view.findViewById(android.R.id.text1);
+            /*YOUR CHOICE OF COLOR*/
+                textView.setTextColor(Color.BLACK);
+                return view;
+            }
+        };
+        ListView listView = (ListView) findViewById(R.id.lv_show_friends);
+        listView.setAdapter(mLogsAdapter);
+
+
+//////////// Floating add friends button.
+        ImageButton FAB = (ImageButton) findViewById(R.id.fab);
+        FAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AddFriends.class);
+                startActivity(intent);
+            }
+        });
 
     }
     @Override
@@ -223,4 +259,11 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         Intent in = new Intent(this,ShowFriends.class);
         startActivity(in);
     }
+
+    public void chooseRestaurant(View view) {
+        Intent i =new Intent(this, ListRestaurant.class);
+        startActivity(i);
+
+    }
+
 }

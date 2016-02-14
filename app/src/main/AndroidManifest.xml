@@ -73,7 +73,7 @@
         <activity android:name=".ListRestaurant" />
         <activity android:name=".GuestList" />
         <activity android:name=".Payment" />
-        <activity android:name=".ShowFriends"></activity>
+        <activity android:name=".ShowFriends" />
     </application>
 
 </manifest>

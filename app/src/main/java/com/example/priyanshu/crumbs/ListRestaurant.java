@@ -6,10 +6,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,6 +31,7 @@ import java.util.HashMap;
 
 public class ListRestaurant extends AppCompatActivity {
 
+    ArrayList<String> names;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,7 +140,8 @@ public class ListRestaurant extends AppCompatActivity {
         @Override
         protected void onPostExecute(ArrayList<String[]> result) {
             if (result != null) {
-                ArrayList<String> names = new ArrayList<>() , address = new ArrayList<>();
+                 names = new ArrayList<>() ;
+                         ArrayList <String> address = new ArrayList<>();
                 for(int i=0;i<result.size();++i){
                     names.add(result.get(i)[0]);
                     address.add(result.get(i)[1]);
@@ -163,5 +168,41 @@ public class ListRestaurant extends AppCompatActivity {
 
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.done) {
+            AutoCompleteTextView ac= (AutoCompleteTextView)findViewById(R.id.rest_name);
+            String name;
+            if(ac.getListSelection()==-1)
+                name="Prata Wala";
+            else
+             name=names.get(ac.getListSelection());
+            changeRestData(name);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    public void changeRestData(String name)
+    {
+        TextView restName = (TextView) findViewById(R.id.rest_text);
+        restName.setText(name);
+        ImageView restImg = (ImageView) findViewById(R.id.order_rest_img);
+        restImg.setImageResource(R.drawable.i);
+        finish();
     }
 }

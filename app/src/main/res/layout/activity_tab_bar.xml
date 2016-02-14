@@ -45,9 +45,10 @@
 
             <include layout="@layout/start_order_activity"
                 android:id="@+id/tab3"/>
-
+            <include layout="@layout/activity_show_friends"
+                android:id="@+id/tab2"/>
             <LinearLayout
-                android:id="@+id/tab2"
+                android:id="@+id/tab5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
                 <TextView

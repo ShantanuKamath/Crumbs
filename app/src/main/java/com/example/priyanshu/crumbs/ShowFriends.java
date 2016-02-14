@@ -16,18 +16,19 @@ import java.util.ArrayList;
 public class ShowFriends extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_friends);
 
         ParseUser user = ParseUser.getCurrentUser();
-        ArrayList<String> Logs  = (ArrayList<String>) user.get("friends");
-        ArrayAdapter<String> mLogsAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, Logs){
+        ArrayList<String> Logs = (ArrayList<String>) user.get("friends");
+        ArrayAdapter<String> mLogsAdapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, Logs) {
             @Override
             public View getView(int position, View convertView,
                                 ViewGroup parent) {
-                View view =super.getView(position, convertView, parent);
-                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+                View view = super.getView(position, convertView, parent);
+                TextView textView = (TextView) view.findViewById(android.R.id.text1);
             /*YOUR CHOICE OF COLOR*/
                 textView.setTextColor(Color.BLACK);
                 return view;

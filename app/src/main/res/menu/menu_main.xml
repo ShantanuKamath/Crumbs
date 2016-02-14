@@ -3,15 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.priyanshu.crumbs.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/done"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_log_out"
-        android:orderInCategory="100"
-        android:title="Log Out"
-        app:showAsAction="never" />
-
+        android:title="DONE"
+        app:showAsAction="always" />
 
 </menu>

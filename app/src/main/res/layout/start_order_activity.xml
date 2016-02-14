@@ -21,7 +21,8 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:src="@drawable/restaurant"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            />
 
         <TextView
             android:gravity="center_vertical"
@@ -35,12 +36,14 @@
     </LinearLayout>
 
     <ImageView
-        android:clickable="true"
+        android:id="@+id/order_rest_img"
         android:layout_height="200dp"
         android:layout_marginBottom="8dp"
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/igray" />
+        android:src="@drawable/igray"
+        android:clickable="true"
+        android:onClick="chooseRestaurant"/>
 
     <LinearLayout
         android:background="#FFFFFF"
