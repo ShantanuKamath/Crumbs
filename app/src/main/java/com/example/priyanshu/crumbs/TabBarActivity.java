@@ -45,8 +45,8 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         this.setNewTab(this, tabHost, "tab1", R.drawable.home, R.id.tab1);
         this.setNewTab(this, tabHost, "tab2", R.drawable.accountmultiple, R.id.tab2);
         this.setNewTab(this, tabHost, "tab3", R.drawable.plus, R.id.tab3);
-        this.setNewTab(this, tabHost, "tab2", R.drawable.account, R.id.tab2);
-        this.setNewTab(this, tabHost, "tab3", R.drawable.settings, R.id.tab3);
+        this.setNewTab(this, tabHost, "tab4", R.drawable.account, R.id.tab4);
+        this.setNewTab(this, tabHost, "tab5", R.drawable.settings, R.id.tab3);
 
         //tabHost.setCurrentTabByTag("tab2"); //-- optional to set a tab programmatically.
 
@@ -207,5 +207,10 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         Intent in= new Intent(this, AddFriends.class);
         startActivity(in);
 
+    }
+
+    public void guestlist(View view) {
+        Intent in= new Intent(this, GuestList.class);
+        startActivity(in);
     }
 }

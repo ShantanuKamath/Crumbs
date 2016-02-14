@@ -68,6 +68,10 @@
         <activity android:name=".AddFriends" />
         <activity android:name=".ListRestaurant" />
         <activity android:name=".StartOrderActivity"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AddFriends" />
+        <activity android:name=".ListRestaurant" />
+        <activity android:name=".GuestList"></activity>
     </application>
 
 </manifest>

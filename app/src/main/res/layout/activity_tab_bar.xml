@@ -63,12 +63,20 @@
                     android:text="openfriends"
                     android:onClick="openfriends"
                     android:paddingBottom="20dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="guest list"
+                    android:onClick="guestlist"
+                    android:paddingBottom="20dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="openrest"
                     android:onClick="openrest"/>
             </LinearLayout>
+            <include layout="@layout/activity_guest_list"
+                android:id="@+id/tab4"/>
         </FrameLayout>
 
         <TabWidget
