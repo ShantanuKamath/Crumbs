@@ -1,61 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_weight="5"
-        android:orientation="vertical"
         android:background="#B71C1C"
-        >
+        android:orientation="vertical">
 
         <ImageButton
             android:id="@+id/fab"
-            android:background="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:src="@android:drawable/ic_menu_edit"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:layout_marginTop="29dp"
+            android:layout_alignEnd="@+id/imageView2"
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/imageView2"
-            android:layout_alignEnd="@+id/imageView2" />
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="29dp"
+            android:background="#fff"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/pencil" />
 
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:src="@drawable/deadpool"
-            android:id="@+id/imageView2"
-            android:layout_alignTop="@+id/fab"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp" />
+
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Priyanshu Singh"
             android:textColor="#FFF"
-            android:layout_gravity="center"
             android:textSize="20sp"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/fab"
+            android:layout_alignBottom="@+id/imageView2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="76dp" />
+            android:layout_marginBottom="38dp" />
+
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Singapore"
-            android:textColor="#FFF"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:id="@+id/textView"
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="37dp" />
+            android:layout_gravity="center"
+            android:text="Singapore"
+            android:textColor="#FFF"
+            android:textSize="20sp" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +77,7 @@
             android:layout_weight="1"
             android:clickable="true"
             android:paddingRight="4dp"
-            android:src="@drawable/nearby" />
+            android:src="@drawable/review" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -106,24 +111,26 @@
             android:paddingRight="4dp"
             android:src="@drawable/next" />
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="103dp"
         android:layout_height="105dp"
-        android:background="@drawable/fountain_pen"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/fountain_pen">
 
     </RelativeLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
         android:layout_height="wrap_content"
-        android:text="write a review"
-        android:layout_gravity="center_horizontal"
-        android:background="#B71C1C"
-        android:textColor="#FFF"
-        android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="31dp"
+        android:layout_marginTop="10dp"
+        android:background="#B71C1C"
+        android:text="write a review"
+        android:textColor="#FFF" />
 
 </LinearLayout>

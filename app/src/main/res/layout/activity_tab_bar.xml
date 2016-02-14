@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.priyanshu.crumbs.TabBarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,57 +41,32 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <include layout="@layout/content_main"
-                android:id="@+id/tab1"/>
+            <include
+                android:id="@+id/tab1"
+                layout="@layout/content_main" />
 
-            <include layout="@layout/start_order_activity"
-                android:id="@+id/tab3"/>
-            <include layout="@layout/activity_show_friends"
-                android:id="@+id/tab2"/>
-            <LinearLayout
+            <include
+                android:id="@+id/tab2"
+                layout="@layout/activity_show_friends" />
+
+            <include
+                android:id="@+id/tab3"
+                layout="@layout/start_order_activity" />
+
+
+            <include
+                android:id="@+id/tab4"
+                layout="@layout/profile" />
+
+            <include
                 android:id="@+id/tab5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tab 3 Content"
-                    android:onClick="logout"
-                    android:paddingBottom="20dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="openfriends"
-                    android:onClick="openfriends"
-                    android:paddingBottom="20dp"/>
-                <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="guest list"
-                android:onClick="guestlist"
-                android:paddingBottom="20dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="showfriendslist"
-                    android:onClick="showfriends"
-                    android:paddingBottom="20dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="openrest"
-                    android:onClick="openrest"/>
-            </LinearLayout>
-            <include layout="@layout/activity_checkbox_friends"
-                android:id="@+id/tab4"/>
+                layout="@layout/settings" />
         </FrameLayout>
 
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </TabWidget>
+            android:layout_height="wrap_content"></TabWidget>
 
     </LinearLayout>
 </TabHost>
