@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.priyanshu.crumbs.TabBarActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C62828"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="4dp"
+                android:src="@drawable/logo_icon" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="9"
+                android:text="Crumbs"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <include layout="@layout/content_main"
+                android:id="@+id/tab1"/>
+
+            <LinearLayout
+                android:id="@+id/tab2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tab 2 Content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tab3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tab 3 Content"
+                    android:onClick="logout"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </TabWidget>
+
+    </LinearLayout>
+</TabHost>
