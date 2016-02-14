@@ -1,13 +1,17 @@
 package com.example.priyanshu.crumbs;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +31,10 @@ public class ListRestaurant extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_list_restaurant);
+        FetchLocationTask flt = new FetchLocationTask();
+        flt.execute();
     }
 
     private ArrayList<String[]> getLocationDataFromJson(String JsonStr)
@@ -51,12 +58,11 @@ public class ListRestaurant extends AppCompatActivity {
         }
         return result;
     }
-    public class FetchLocationTask extends AsyncTask<String, Void, ArrayList<String[]>> {
+    public class FetchLocationTask extends AsyncTask<Void, Void, ArrayList<String[]>> {
 
         @Override
-        protected ArrayList<String[]> doInBackground(String... strings) {
-            strings[0].replaceAll(" ", "+");
-            strings[0].replaceAll(",", ",+");
+        protected ArrayList<String[]> doInBackground(Void... params) {
+
             HttpURLConnection urlConnection = null;
             BufferedReader reader = null;
             String JsonStr = null;
@@ -71,7 +77,7 @@ public class ListRestaurant extends AppCompatActivity {
                         .appendQueryParameter(ADDRESS_PARAM, ADDRESS_VALUE)
                         .appendQueryParameter(KEY_PARAM, KEY_VALUE)
                         .build();
-
+                Log.d("REST",builtUri.toString());
                 URL url = new URL(builtUri.toString());
                 urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
@@ -126,6 +132,7 @@ public class ListRestaurant extends AppCompatActivity {
             // This will only happen if there was an error getting or parsing the forecast.
             return null;
         }
+
         @Override
         protected void onPostExecute(ArrayList<String[]> result) {
             if (result != null) {
@@ -137,10 +144,20 @@ public class ListRestaurant extends AppCompatActivity {
 
                 String[] names_list = new String[names.size()];
                 names_list = names.toArray(names_list);
-                ArrayAdapter<String> rest_list_adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,names_list);
+                ArrayAdapter<String> rest_list_adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1,names_list){
+                    @Override
+                    public View getView(int position, View convertView,
+                                        ViewGroup parent) {
+                        View view =super.getView(position, convertView, parent);
+                        TextView textView=(TextView) view.findViewById(android.R.id.text1);
+            /*YOUR CHOICE OF COLOR*/
+                        textView.setTextColor(Color.BLACK);
+                        return view;
+                    }
+                };
                 ListView lw = (ListView) findViewById(R.id.rest_list_view);
                 lw.setAdapter(rest_list_adapter);
-                AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.friends_list_search);
+                AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.rest_name);
                 actv.setAdapter(rest_list_adapter);
                 actv.setThreshold(1);
 

@@ -12,9 +12,10 @@
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rest_name"/>
+        android:id="@+id/rest_name"
+        android:textColor="@android:color/black"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/rest_list_view"/>
+        android:id="@+id/rest_list_view" />
 </LinearLayout>
