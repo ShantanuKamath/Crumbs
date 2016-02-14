@@ -2,23 +2,21 @@ package com.example.priyanshu.crumbs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.Parse;
-import com.parse.ParseFacebookUtils;
-import com.parse.ParseUser;
-import com.parse.ui.ParseLoginBuilder;
-
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
+import com.parse.ParseUser;
+import com.parse.ui.ParseLoginBuilder;
 
 import java.util.HashMap;
 
@@ -54,10 +52,10 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
         mDemoSlider = (SliderLayout)findViewById(R.id.slider);
 
         HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Hannibal",R.drawable.hannibal);
-        file_maps.put("Big Bang Theory",R.drawable.bigbang);
-        file_maps.put("House of Cards",R.drawable.house);
-        file_maps.put("Game of Thrones", R.drawable.game_of_thrones);
+        file_maps.put("@Mia Pizzeria: 15% off on medium-sized pizzas",R.drawable.e);
+        file_maps.put("@Capricci: 1 for 1 weekend offer",R.drawable.c);
+        file_maps.put("@The Living Café: BLT meal for $15 only",R.drawable.a);
+        file_maps.put("@Sam's Deli: Grilled steak sandwich @$14", R.drawable.b);
 
         for(String name : file_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(this);
