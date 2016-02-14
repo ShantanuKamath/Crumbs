@@ -2,6 +2,7 @@ package com.example.priyanshu.crumbs;
 
 import android.app.TabActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -117,5 +118,16 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
 //        finish();
         Parse.initialize(this);
         ParseFacebookUtils.initialize(this);
+    }
+
+    public void openrest(View view) {
+        Intent i= new Intent(this, ListRestaurant.class);
+        startActivity(i);
+    }
+
+    public void openfriends(View view) {
+        Intent in= new Intent(this, AddFriends.class);
+        startActivity(in);
+
     }
 }

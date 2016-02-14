@@ -63,7 +63,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tab 3 Content"
-                    android:onClick="logout"/>
+                    android:onClick="logout"
+                    android:paddingBottom="20dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="openfriends"
+                    android:onClick="openfriends"
+                    android:paddingBottom="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="openrest"
+                    android:onClick="openrest"/>
             </LinearLayout>
         </FrameLayout>
 

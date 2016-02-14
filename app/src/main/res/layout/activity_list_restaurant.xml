@@ -7,20 +7,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.priyanshu.crumbs.AddFriends"
+    tools:context="com.example.priyanshu.crumbs.ListRestaurant"
     android:orientation="vertical">
-
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/friends_list_search"
-        android:singleLine="true"
-        android:textColor="#000"/>
+        android:id="@+id/rest_name"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/friends_list">
-    </ListView>
-
+        android:id="@+id/rest_list_view"/>
 </LinearLayout>
