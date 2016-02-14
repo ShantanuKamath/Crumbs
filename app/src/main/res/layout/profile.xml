@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:background="#B71C1C"
+        >
+
+        <ImageButton
+            android:id="@+id/fab"
+            android:background="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@android:drawable/ic_menu_edit"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:layout_marginTop="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/imageView2"
+            android:layout_alignEnd="@+id/imageView2" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/deadpool"
+            android:id="@+id/imageView2"
+            android:layout_alignTop="@+id/fab"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priyanshu Singh"
+            android:textColor="#FFF"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/fab"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="76dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Singapore"
+            android:textColor="#FFF"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:id="@+id/textView"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:paddingRight="4dp"
+            android:src="@drawable/nearby" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="Review"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:text="Review the food you like."
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:paddingRight="4dp"
+            android:src="@drawable/next" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="103dp"
+        android:layout_height="105dp"
+        android:background="@drawable/fountain_pen"
+        android:layout_gravity="center_horizontal">
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="write a review"
+        android:layout_gravity="center_horizontal"
+        android:background="#B71C1C"
+        android:textColor="#FFF"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp" />
+
+</LinearLayout>
