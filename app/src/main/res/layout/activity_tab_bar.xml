@@ -75,7 +75,7 @@
                     android:text="openrest"
                     android:onClick="openrest"/>
             </LinearLayout>
-            <include layout="@layout/activity_guest_list"
+            <include layout="@layout/activity_checkbox_friends"
                 android:id="@+id/tab4"/>
         </FrameLayout>
 

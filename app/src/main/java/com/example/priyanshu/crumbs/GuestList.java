@@ -19,7 +19,7 @@ public class GuestList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guest_list);
+        setContentView(R.layout.activity_checkbox_friends);
         ParseUser user = ParseUser.getCurrentUser();
         ArrayList<String> Logs  = (ArrayList<String>) user.get("friends");
         LinearLayout lw = (LinearLayout) findViewById(R.id.guest_list);
