@@ -64,10 +64,16 @@
                     android:onClick="openfriends"
                     android:paddingBottom="20dp"/>
                 <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="guest list"
+                android:onClick="guestlist"
+                android:paddingBottom="20dp"/>
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="guest list"
-                    android:onClick="guestlist"
+                    android:text="showfriendslist"
+                    android:onClick="showfriends"
                     android:paddingBottom="20dp"/>
                 <TextView
                     android:layout_width="wrap_content"
