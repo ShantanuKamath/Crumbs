@@ -64,9 +64,10 @@
 
         <activity
             android:name=".TabBarActivity"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".AddFriends"></activity>
-        <activity android:name=".ListRestaurant"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".AddFriends" />
+        <activity android:name=".ListRestaurant" />
+        <activity android:name=".StartOrderActivity"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
     android:background="#E0E0E0"
     tools:context="com.example.priyanshu.crumbs.MainActivity">
 
-    <include layout="@layout/content_main" />
+    <!--<include layout="@layout/content_main" />-->
 
 
 </android.support.design.widget.CoordinatorLayout>

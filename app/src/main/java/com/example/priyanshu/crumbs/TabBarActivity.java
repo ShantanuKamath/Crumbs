@@ -1,14 +1,20 @@
 package com.example.priyanshu.crumbs;
 
+import android.app.DatePickerDialog;
 import android.app.TabActivity;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -19,12 +25,15 @@ import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 
 
 public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageChangeListener, BaseSliderView.OnSliderClickListener {
     private SliderLayout mDemoSlider;
-
+    final Calendar myCalendar = Calendar.getInstance();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +79,60 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
+
+
+
+
+        // DATE AND TIME
+        TextView dateText = (TextView) findViewById(R.id.date_text);
+
+        TextView timeText = (TextView
+                ) findViewById(R.id.time_text);
+
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel(view);
+            }
+
+        };
+
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(TabBarActivity.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        //////
+        final TimePickerDialog.OnTimeSetListener t =new TimePickerDialog.OnTimeSetListener() {
+            public void onTimeSet(TimePicker view, int hourOfDay,
+                                  int minute) {
+                myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                myCalendar.set(Calendar.MINUTE, minute);
+                updateLabel(view);
+            }
+        };
+
+        timeText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                new TimePickerDialog(TabBarActivity.this,
+                        t,
+                        myCalendar.get(Calendar.HOUR_OF_DAY),
+                        myCalendar.get(Calendar.MINUTE),
+                        true).show();
+            }
+        });
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,6 +151,21 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         ImageView iv = (ImageView) view.findViewById(R.id.imageView);
         iv.setImageResource(icon);
         return view;
+    }
+
+    private void updateLabel(View v) {
+        TextView dateText = (TextView) findViewById(R.id.date_text);
+        String myFormat = "dd/MM/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        dateText.setText(sdf.format(myCalendar.getTime()));
+
+        TextView timeText = (TextView) findViewById(R.id.time_text);
+        myFormat = "HH:mm";
+        sdf = new SimpleDateFormat(myFormat, Locale.US);
+        timeText.setText(sdf.format(myCalendar.getTime()));
+        String dateinText= dateText.getText().toString()+" "+timeText.getText().toString();
+        Log.d("party", dateinText);
+//        party.put("Date", dateinText);
     }
 
     @Override

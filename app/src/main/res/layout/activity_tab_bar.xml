@@ -43,19 +43,11 @@
             <include layout="@layout/content_main"
                 android:id="@+id/tab1"/>
 
-            <LinearLayout
-                android:id="@+id/tab2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tab 2 Content" />
-            </LinearLayout>
+            <include layout="@layout/start_order_activity"
+                android:id="@+id/tab3"/>
 
             <LinearLayout
-                android:id="@+id/tab3"
+                android:id="@+id/tab2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
                 <TextView
