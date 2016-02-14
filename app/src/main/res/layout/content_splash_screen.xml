@@ -13,23 +13,36 @@
     tools:showIn="@layout/activity_splash_screen">
 
     <ImageView
-        android:layout_width="2000dp"
-        android:layout_height="200dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:src="@drawable/picture2"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="61dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="10dp"
         android:id="@+id/pizza"/>
 
     <ImageView
-        android:layout_width="2000dp"
-        android:layout_height="200dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="10dp"
         android:src="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="61dp"
-        android:id="@+id/logo"/>
+        android:id="@+id/logo"
+        android:layout_alignBottom="@+id/crumbs_tv"
+        android:layout_toLeftOf="@+id/crumbs_tv"
+        android:layout_toStartOf="@+id/crumbs_tv" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crumbs"
+        android:textSize="64sp"
+        android:layout_alignBottom="@+id/pizza"
+        android:layout_toRightOf="@+id/pizza"
+        android:layout_toEndOf="@+id/pizza"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:id="@+id/crumbs_tv"
+        />
 
 </RelativeLayout>

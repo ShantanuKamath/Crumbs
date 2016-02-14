@@ -61,6 +61,8 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="HRojisi1rlxIvXPWkpnXMu82CMHumITyhccPJcfh" />
+
+        <activity android:name=".AddFriends"></activity>
     </application>
 
 </manifest>
