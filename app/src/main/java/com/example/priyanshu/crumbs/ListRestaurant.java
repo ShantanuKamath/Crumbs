@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -163,7 +164,16 @@ public class ListRestaurant extends AppCompatActivity {
                 };
                 ListView lw = (ListView) findViewById(R.id.rest_list_view);
                 lw.setAdapter(rest_list_adapter);
-                AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.rest_name);
+                final AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.rest_name);
+                lw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Log.d("TEST",names.get((int)id));
+                        AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.rest_name);
+                        actv.setText(names.get((int) id));
+                    }
+                });
+
                 actv.setAdapter(rest_list_adapter);
                 actv.setThreshold(1);
 
@@ -188,11 +198,7 @@ public class ListRestaurant extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.done) {
             AutoCompleteTextView ac = (AutoCompleteTextView) findViewById(R.id.rest_name);
-            String name;
-            if (ac.getListSelection() == -1)
-                name = "Prata Wala";
-            else
-                name = names.get(ac.getListSelection());
+            String name= ac.getText().toString();
             Log.v("Bobey", name);
             changeRestData(name);
             return true;

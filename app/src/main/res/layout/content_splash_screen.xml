@@ -19,7 +19,7 @@
         android:src="@drawable/picture2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="10dp"
         android:id="@+id/pizza"/>
 

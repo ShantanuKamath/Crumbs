@@ -74,6 +74,7 @@
         <activity android:name=".GuestList" />
         <activity android:name=".Payment" />
         <activity android:name=".ShowFriends" />
+        <activity android:name=".MenuSelect"></activity>
     </application>
 
 </manifest>

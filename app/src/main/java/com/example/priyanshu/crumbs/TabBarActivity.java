@@ -42,11 +42,18 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
     final Calendar myCalendar = Calendar.getInstance();
     public static TextView restName, numFriends;
     public static ImageView restImg;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_bar);
 
+        TextView hello= (TextView) findViewById(R.id.helloUser);
+        String helloname=ParseUser.getCurrentUser().getString("name");
+        int i=helloname.indexOf(" ");
+        helloname=helloname.substring(0, i);
+        hello.setText("Hello, "+helloname);
         TabHost tabHost = getTabHost();
 
         // setNewTab(context, tabHost, tag, title, icon, contentID);
@@ -175,6 +182,10 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         restName= (TextView) findViewById(R.id.rest_text);
         restImg  = (ImageView) findViewById(R.id.order_rest_img);
         numFriends = (TextView) findViewById(R.id.numFriends);
+
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -194,6 +205,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         iv.setImageResource(icon);
         return view;
     }
+
 
     private void updateLabel(View v) {
         TextView dateText = (TextView) findViewById(R.id.date_text);
@@ -257,7 +269,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
     }
 
     public void openPayment(View view) {
-        Intent in= new Intent(this, Payment.class);
+        Intent in= new Intent(this, MenuSelect.class);
         startActivity(in);
     }
 
@@ -271,5 +283,6 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         startActivity(i);
 
     }
+
 
 }

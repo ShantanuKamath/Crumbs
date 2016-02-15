@@ -232,5 +232,42 @@
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:onClick="logout">
 
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:paddingRight="4dp"
+            android:src="@drawable/logout" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="Sign Out"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
 </LinearLayout>

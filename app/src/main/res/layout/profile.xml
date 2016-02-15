@@ -20,10 +20,11 @@
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/imageView2"
             android:layout_gravity="bottom|end"
-            android:layout_marginTop="29dp"
+            android:layout_marginTop="28dp"
             android:background="#fff"
             android:backgroundTint="@color/colorPrimaryDark"
-            android:src="@drawable/pencil" />
+            android:src="@drawable/pencil"
+            android:layout_marginRight="30dp" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -46,18 +47,7 @@
             android:textSize="20sp"
             android:layout_alignBottom="@+id/imageView2"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="38dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:text="Singapore"
-            android:textColor="#FFF"
-            android:textSize="20sp" />
+            android:layout_marginBottom="20dp" />
 
     </RelativeLayout>
 
@@ -113,8 +103,8 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="103dp"
-        android:layout_height="105dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/fountain_pen">
 
