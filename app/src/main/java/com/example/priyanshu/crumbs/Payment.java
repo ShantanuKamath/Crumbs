@@ -2,12 +2,16 @@ package com.example.priyanshu.crumbs;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalItem;
@@ -37,12 +41,60 @@ public class Payment extends AppCompatActivity {
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         startService(intent);
-        Button button = (Button)findViewById(R.id.pay);
-        final EditText et = (EditText)findViewById(R.id.amount);
+
+        Intent intentt = getIntent();
+        int quantity[] = (int[]) intentt.getSerializableExtra("QUANTITIES");
+        String[] nameOfDish = (String[]) intentt.getSerializableExtra("DISHNAMES");
+        String[] priceOfDish = (String[]) intentt.getSerializableExtra("PRICES");
+
+
+        String[] orderitems = new String[0];
+        LinearLayout main = (LinearLayout) findViewById(R.id.orderSummary);
+        main.setOrientation(LinearLayout.VERTICAL);
+        for (int i = 0; i < nameOfDish.length; i++)
+        {
+            if(quantity[i]!=0)
+            {
+                LinearLayout lw = new LinearLayout(this);
+                lw.setOrientation(LinearLayout.HORIZONTAL);
+                lw.setPadding(0,0,0,8);
+                TextView dishName = new TextView(this);
+                TextView qty = new TextView(this);
+                TextView price = new TextView(this);
+
+                dishName.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT,6f));
+                qty.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f));
+                price.setLayoutParams(new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3f));
+
+                dishName.setTextColor(Color.BLACK);
+                dishName.setTextSize(20);
+
+                qty.setTextColor(Color.BLACK);
+                qty.setTextSize(20);
+                qty.setGravity(Gravity.CENTER_HORIZONTAL);
+
+                price.setTextColor(Color.BLACK);
+                price.setTextSize(20);
+                price.setGravity(Gravity.CENTER_HORIZONTAL);
+
+
+                dishName.setText(nameOfDish[i]);
+                qty.setText(""+quantity[i]);
+                price.setText(""+quantity[i]*Double.parseDouble(priceOfDish[i].substring(priceOfDish[i].lastIndexOf(" "),priceOfDish[i].length())));
+
+
+                lw.addView(dishName);
+                lw.addView(qty);
+                lw.addView(price);
+                main.addView(lw);
+            }
+        }
+
+        Button button = (Button) findViewById(R.id.pay);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBuyPressed(et.getText().toString());
+                onBuyPressed("56");
             }
         });
     }
@@ -63,6 +115,7 @@ public class Payment extends AppCompatActivity {
 
         PayPalPayment payment = new PayPalPayment(new BigDecimal(amount), "SGD", "Your mom",
                 PayPalPayment.PAYMENT_INTENT_SALE);
+
         Intent intent = new Intent(this, PaymentActivity.class);
         PayPalPayment listitem = getStuffToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
         // send the same configuration for restart resiliency
@@ -97,7 +150,7 @@ public class Payment extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
             PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
             if (confirm != null) {
@@ -112,11 +165,9 @@ public class Payment extends AppCompatActivity {
                     Log.e("paymentExample", "an extremely unlikely failure occurred: ", e);
                 }
             }
-        }
-        else if (resultCode == Activity.RESULT_CANCELED) {
+        } else if (resultCode == Activity.RESULT_CANCELED) {
             Log.i("paymentExample", "The user canceled.");
-        }
-        else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+        } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
             Log.i("paymentExample", "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
         }
     }

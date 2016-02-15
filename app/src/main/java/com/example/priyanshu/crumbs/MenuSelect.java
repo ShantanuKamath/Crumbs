@@ -17,6 +17,11 @@ public class MenuSelect extends AppCompatActivity {
     int quantity4;
     int quantity5;
     int quantity6;
+
+    int quantity[]= new int[6];
+    String[] nameOfDish;
+    String[] priceOfDish;
+
     public static TextView q1, q2, q3, q4, q5, q6;
     public static TextView t1, t2, t3, t4, t5, t6;
     public static TextView p1, p2, p3, p4, p5, p6;
@@ -63,8 +68,7 @@ public class MenuSelect extends AppCompatActivity {
 //        TextView restName = (TextView) findViewById(R.id.rest_text);
         Intent intent = getIntent();
         String restaurant = (String) intent.getSerializableExtra("RESTNAME");
-        String[] nameOfDish;
-        String[] priceOfDish;
+
         switch (restaurant) {
             case "Aston's Specialities":
                 nameOfDish = new String[]{"Spicy Chicken Spaghetti", "Prime Ribeye", "Beefy Jack Burger", "Grilled Fish with Herb", "Canned Beer", "Red Wine Glass"};
@@ -271,7 +275,18 @@ public class MenuSelect extends AppCompatActivity {
     }
 
     public void payPal(View view) {
+        quantity[0]=quantity1;
+        quantity[1]=quantity2;
+        quantity[2]=quantity3;
+        quantity[3]=quantity4;
+        quantity[4]=quantity5;
+        quantity[5]=quantity6;
         Intent i = new Intent(this, Payment.class);
+        i.putExtra("QUANTITIES", quantity);
+        i.putExtra("DISHNAMES", nameOfDish);
+        i.putExtra("PRICES", priceOfDish);
         startActivity(i);
     }
+
+
 }
