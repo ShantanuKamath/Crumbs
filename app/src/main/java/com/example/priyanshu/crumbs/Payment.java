@@ -51,6 +51,7 @@ public class Payment extends AppCompatActivity {
         String[] orderitems = new String[0];
         LinearLayout main = (LinearLayout) findViewById(R.id.orderSummary);
         main.setOrientation(LinearLayout.VERTICAL);
+        double total=0.0;
         for (int i = 0; i < nameOfDish.length; i++)
         {
             if(quantity[i]!=0)
@@ -82,21 +83,33 @@ public class Payment extends AppCompatActivity {
                 qty.setText(""+quantity[i]);
                 price.setText(""+quantity[i]*Double.parseDouble(priceOfDish[i].substring(priceOfDish[i].lastIndexOf(" "),priceOfDish[i].length())));
 
-
+                total+=Double.parseDouble(price.getText().toString());
                 lw.addView(dishName);
                 lw.addView(qty);
                 lw.addView(price);
                 main.addView(lw);
             }
+
         }
 
+        final double taxorder=0.07*total;
+        final double forPaypal =total+taxorder;
+        TextView orderTotal = (TextView) findViewById(R.id.total);
+        TextView tax = (TextView) findViewById(R.id.tax);
+        tax.setText(String.format("%.2f",taxorder));
+        orderTotal.setText(String.format("%.2f", forPaypal));
         Button button = (Button) findViewById(R.id.pay);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBuyPressed("56");
+                onBuyPressed(""+forPaypal);
             }
         });
+
+
+        Intent a = getIntent();
+        TextView time = (TextView) findViewById(R.id.addressTime);
+        time.setText("Address : Block 60, Hall 12,\n30 Nanyang Crescent,\nSingapore 637659.\nTime: " + a.getSerializableExtra("TIME").toString() + "\tDate: " + a.getSerializableExtra("Date").toString());
     }
 
     @Override
@@ -113,15 +126,19 @@ public class Payment extends AppCompatActivity {
         //   - PAYMENT_INTENT_ORDER to create a payment for authorization and capture
         //     later via calls from your server.
 
-        PayPalPayment payment = new PayPalPayment(new BigDecimal(amount), "SGD", "Your mom",
+        PayPalPayment payment = new PayPalPayment(new BigDecimal(amount), "SGD", "Total Amount",
                 PayPalPayment.PAYMENT_INTENT_SALE);
 
         Intent intent = new Intent(this, PaymentActivity.class);
-        PayPalPayment listitem = getStuffToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
+        PayPalPayment listitem = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE, Double.parseDouble(amount));
         // send the same configuration for restart resiliency
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         intent.putExtra(PaymentActivity.EXTRA_PAYMENT, listitem);
         startActivityForResult(intent, 0);
+    }
+    private PayPalPayment getThingToBuy(String paymentIntent, double amount)
+    {
+        return new PayPalPayment(new BigDecimal(amount), "SGD", "Total Amount", paymentIntent);
     }
 
     private PayPalPayment getStuffToBuy(String paymentIntent) {

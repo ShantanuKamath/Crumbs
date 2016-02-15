@@ -42,6 +42,8 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
     final Calendar myCalendar = Calendar.getInstance();
     public static TextView restName, numFriends;
     public static ImageView restImg;
+    public static TextView time;
+    public static TextView datee;
 
 
     @Override
@@ -182,7 +184,8 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         restName= (TextView) findViewById(R.id.rest_text);
         restImg  = (ImageView) findViewById(R.id.order_rest_img);
         numFriends = (TextView) findViewById(R.id.numFriends);
-
+        time= (TextView) findViewById(R.id.time_text);
+        datee=(TextView) findViewById(R.id.date_text);
 
 
 
@@ -271,7 +274,10 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
     public void openPayment(View view) {
         Intent in= new Intent(this, MenuSelect.class);
         in.putExtra("RESTNAME", restName.getText().toString());
+        in.putExtra("TIME", time.getText().toString());
+        in.putExtra("Date", datee.getText().toString());
         Log.v("BOBEY", restName.getText().toString());
+
         startActivity(in);
     }
 

@@ -281,10 +281,14 @@ public class MenuSelect extends AppCompatActivity {
         quantity[3]=quantity4;
         quantity[4]=quantity5;
         quantity[5]=quantity6;
+        Intent a= getIntent();
         Intent i = new Intent(this, Payment.class);
         i.putExtra("QUANTITIES", quantity);
         i.putExtra("DISHNAMES", nameOfDish);
         i.putExtra("PRICES", priceOfDish);
+        i.putExtra("TIME", a.getSerializableExtra("TIME").toString());
+        i.putExtra("Date", a.getSerializableExtra("Date").toString());
+
         startActivity(i);
     }
 

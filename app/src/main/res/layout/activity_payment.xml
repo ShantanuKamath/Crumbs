@@ -3,15 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#E0E0E0"
+    android:orientation="vertical"
     tools:context="com.example.priyanshu.crumbs.Payment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:layout_width="0dp"
@@ -29,43 +31,54 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order Summary"
+                android:text="Order Summary "
                 android:textColor="#000000"
                 android:textSize="20sp" />
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:background="@color/colorPrimary"
+    </LinearLayout>
+    <TextView
+        android:id="@+id/addressTime"
+        android:paddingLeft="48dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:paddingBottom="8dp"
+        android:text="Address : Block 60, Hall 12,\n30 Nanyang Crescent,\nSingapore 637659.\nTime: "/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:padding="8dp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="6"
             android:layout_height="wrap_content"
+            android:layout_weight="6"
             android:text="Name of Dish"
             android:textColor="#FFF"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center_horizontal"
             android:text="Quantity"
             android:textColor="#FFF"
-            android:textSize="20sp"
-            android:gravity="center_horizontal" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
             android:text="Price(S$)"
             android:textColor="#FFF"
-            android:gravity="center_horizontal" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,17 +86,68 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
-        android:padding="8dp"
         android:background="#FFF"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFF">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:gravity="right"
+            android:paddingRight="8dp"
+            android:text="Tax (7%)"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:gravity="right"
+            android:paddingRight="8dp"
+            android:text="Order Total"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:gravity="center_horizontal"
+            android:textColor="#000"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/pay"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:text="Pay Now"
         android:textColor="#FFF" />
