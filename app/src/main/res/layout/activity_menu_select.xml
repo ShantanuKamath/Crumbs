@@ -5,6 +5,13 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B71C1C"
+        android:text="Pay Now"
+        android:textColor="#FFF"
+        android:onClick="payPal"/>
 
 <ScrollView
     android:layout_width="match_parent"
