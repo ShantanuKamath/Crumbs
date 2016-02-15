@@ -405,7 +405,8 @@
         android:layout_height="wrap_content"
         android:background="#B71C1C"
         android:text="Pay Now"
-        android:textColor="#FFF" />
+        android:textColor="#FFF"
+        android:onClick="payPal"/>
 
 </LinearLayout>
 </ScrollView>

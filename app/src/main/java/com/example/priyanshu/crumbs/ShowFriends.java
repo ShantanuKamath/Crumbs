@@ -36,6 +36,6 @@ public class ShowFriends extends AppCompatActivity {
         };
         ListView listView = (ListView) findViewById(R.id.lv_show_friends);
         listView.setAdapter(mLogsAdapter);
-
     }
+
 }

@@ -71,7 +71,8 @@
                 android:clickable="true"
                 android:text="Payments"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:onClick="payment"/>
 
 
         </LinearLayout>

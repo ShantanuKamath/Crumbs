@@ -14,14 +14,24 @@ import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginBuilder;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalService;
 
 public class MainActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
     private SliderLayout mDemoSlider;
+    private static PayPalConfiguration config = new PayPalConfiguration()
 
+            // Start with mock environment.  When ready, switch to sandbox (ENVIRONMENT_SANDBOX)
+            // or live (ENVIRONMENT_PRODUCTION)
+            .environment(PayPalConfiguration.ENVIRONMENT_NO_NETWORK)
+            .clientId("AdAwRc6yrVFSKQhC0YAXubLj7jCHP1mF2hmGvEuaq2vfYUwczZuOCG5OsPCbl260A5feK4LmYiy9VcAy");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent in = new Intent(this, PayPalService.class);
+        in.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        startService(in);
         Parse.initialize(this);
         ParseFacebookUtils.initialize(this);
         if (ParseUser.getCurrentUser() == null) {
@@ -84,4 +94,12 @@ public class MainActivity extends AppCompatActivity implements BaseSliderView.On
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onDestroy() {
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
+    }
+
+
 }
