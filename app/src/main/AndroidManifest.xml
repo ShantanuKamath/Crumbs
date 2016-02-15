@@ -68,13 +68,16 @@
         <activity android:name=".AddFriends" />
         <activity android:name=".ListRestaurant" />
         <activity android:name=".StartOrderActivity" />
-        android:theme="@style/AppTheme" />
-        <activity android:name=".AddFriends" />
-        <activity android:name=".ListRestaurant" />
+
         <activity android:name=".GuestList" />
         <activity android:name=".Payment" />
         <activity android:name=".ShowFriends" />
-        <activity android:name=".MenuSelect"></activity>
+        <activity android:name=".MenuSelect" />
+        <activity
+            android:name=".FriendOrder"
+            android:label="@string/title_activity_friend_order"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddressSelect"></activity>
     </application>
 
 </manifest>

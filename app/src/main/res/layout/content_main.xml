@@ -223,8 +223,7 @@
                                 android:layout_gravity="left|center_vertical"
                                 android:layout_weight="9"
                                 android:paddingLeft="8dp"
-                                android:text="Mood"
-                                android:onClick="log_out"
+                                android:text="Alcohol"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp" />
 
@@ -250,7 +249,7 @@
                                 android:layout_gravity="left|center_vertical"
                                 android:layout_weight="9"
                                 android:paddingLeft="8dp"
-                                android:text="Mood"
+                                android:text="Late Night"
                                 android:textColor="#FFFFFF"
                                 android:textSize="20sp" />
 
@@ -287,7 +286,7 @@
                             android:layout_gravity="left|center_vertical"
                             android:layout_weight="9"
                             android:paddingLeft="8dp"
-                            android:text="Mood"
+                            android:text="Fast Food"
                             android:textColor="#FFFFFF"
                             android:textSize="20sp" />
 
@@ -313,7 +312,7 @@
                             android:layout_gravity="left|center_vertical"
                             android:layout_weight="9"
                             android:paddingLeft="8dp"
-                            android:text="Mood"
+                            android:text="Just Biryani"
                             android:textColor="#FFFFFF"
                             android:textSize="20sp" />
 
@@ -350,7 +349,7 @@
                             android:layout_gravity="left|center_vertical"
                             android:layout_weight="9"
                             android:paddingLeft="8dp"
-                            android:text="Mood"
+                            android:text="Authentic Pizza"
                             android:textColor="#FFFFFF"
                             android:textSize="20sp" />
 
@@ -376,7 +375,7 @@
                             android:layout_gravity="left|center_vertical"
                             android:layout_weight="9"
                             android:paddingLeft="8dp"
-                            android:text="Mood"
+                            android:text="Momos"
                             android:textColor="#FFFFFF"
                             android:textSize="20sp" />
 

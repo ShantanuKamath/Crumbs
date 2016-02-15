@@ -293,4 +293,8 @@ public class MenuSelect extends AppCompatActivity {
     }
 
 
+    public void friendOrders(View view) {
+        Intent i = new Intent(this,FriendOrder.class);
+        startActivity(i);
+    }
 }

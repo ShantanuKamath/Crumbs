@@ -9,9 +9,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#B71C1C"
-        android:text="Pay Now"
+        android:text="See what others ordered"
         android:textColor="#FFF"
-        android:onClick="payPal"/>
+        android:onClick="friendOrders"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:src="@drawable/restaurant" />
+
+        <TextView
+            android:id="@+id/rest_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:text="Choose from Menu"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:singleLine="true"/>
+    </LinearLayout>
 
 <ScrollView
     android:layout_width="match_parent"

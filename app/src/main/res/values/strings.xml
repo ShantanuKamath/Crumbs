@@ -7,5 +7,6 @@
     </string>
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="title_activity_pratyum">pratyum</string>
+    <string name="title_activity_friend_order">FriendOrder</string>
 
 </resources>

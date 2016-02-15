@@ -98,9 +98,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         mDemoSlider.addOnPageChangeListener(this);
 
 
-
-
-        // DATE AND TIME
+// DATE AND TIME
         TextView dateText = (TextView) findViewById(R.id.date_text);
 
         TextView timeText = (TextView
@@ -148,7 +146,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         });
 
 
- /////// SHOW FRIENDS
+        /////// SHOW FRIENDS
 
         ParseUser user = ParseUser.getCurrentUser();
         ArrayList<String> Logs = (ArrayList<String>) user.get("friends");
@@ -189,6 +187,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
 
 
 
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -210,20 +209,7 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
     }
 
 
-    private void updateLabel(View v) {
-        TextView dateText = (TextView) findViewById(R.id.date_text);
-        String myFormat = "dd/MM/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-        dateText.setText(sdf.format(myCalendar.getTime()));
 
-        TextView timeText = (TextView) findViewById(R.id.time_text);
-        myFormat = "HH:mm";
-        sdf = new SimpleDateFormat(myFormat, Locale.US);
-        timeText.setText(sdf.format(myCalendar.getTime()));
-        String dateinText= dateText.getText().toString()+" "+timeText.getText().toString();
-        Log.d("party", dateinText);
-//        party.put("Date", dateinText);
-    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -255,24 +241,40 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
         ParseFacebookUtils.initialize(this);
     }
 
-    public void openrest(View view) {
-        Intent i= new Intent(this, ListRestaurant.class);
-        startActivity(i);
-    }
 
     public void openfriends(View view) {
         Intent in= new Intent(this, AddFriends.class);
         startActivity(in);
 
     }
-
-    public void guestlist(View view) {
-        Intent in= new Intent(this, GuestList.class);
+    public void showfriends(View view) {
+        Intent in = new Intent(this,ShowFriends.class);
         startActivity(in);
     }
 
+
+
+    private void updateLabel(View v) {
+        TextView dateText = (TextView) findViewById(R.id.date_text);
+        String myFormat = "dd/MM/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        dateText.setText(sdf.format(myCalendar.getTime()));
+
+        TextView timeText = (TextView) findViewById(R.id.time_text);
+        myFormat = "HH:mm";
+        sdf = new SimpleDateFormat(myFormat, Locale.US);
+        timeText.setText(sdf.format(myCalendar.getTime()));
+        String dateinText= dateText.getText().toString()+" "+timeText.getText().toString();
+        Log.d("party", dateinText);
+//        party.put("Date", dateinText);
+    }
+    public void chooseRestaurant(View view) {
+        Intent i =new Intent(this, ListRestaurant.class);
+        startActivity(i);
+
+    }
     public void openPayment(View view) {
-        Intent in= new Intent(this, MenuSelect.class);
+        Intent in= new Intent(this, AddressSelect.class);
         in.putExtra("RESTNAME", restName.getText().toString());
         in.putExtra("TIME", time.getText().toString());
         in.putExtra("Date", datee.getText().toString());
@@ -280,16 +282,15 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
 
         startActivity(in);
     }
-
-    public void showfriends(View view) {
-        Intent in = new Intent(this,ShowFriends.class);
-        startActivity(in);
+    public void openrest(View view) {
+        Intent i= new Intent(this, ListRestaurant.class);
+        startActivity(i);
     }
 
-    public void chooseRestaurant(View view) {
-        Intent i =new Intent(this, ListRestaurant.class);
-        startActivity(i);
 
+    public void guestlist(View view) {
+        Intent in= new Intent(this, GuestList.class);
+        startActivity(in);
     }
 
 
