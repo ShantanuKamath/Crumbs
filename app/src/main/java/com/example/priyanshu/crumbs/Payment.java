@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalItem;
 import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalPaymentDetails;
 import com.paypal.android.sdk.payments.PayPalService;
 import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
@@ -62,10 +64,36 @@ public class Payment extends AppCompatActivity {
         PayPalPayment payment = new PayPalPayment(new BigDecimal(amount), "SGD", "Your mom",
                 PayPalPayment.PAYMENT_INTENT_SALE);
         Intent intent = new Intent(this, PaymentActivity.class);
+        PayPalPayment listitem = getStuffToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
         // send the same configuration for restart resiliency
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, listitem);
         startActivityForResult(intent, 0);
+    }
+
+    private PayPalPayment getStuffToBuy(String paymentIntent) {
+        //--- include an item list, payment amount details
+        PayPalItem[] items =
+                {
+                        new PayPalItem("sample item #1", 2, new BigDecimal("87.50"), "SGD",
+                                "sku-12345678"),
+                        new PayPalItem("free sample item #2", 1, new BigDecimal("0.00"),
+                                "SGD", "sku-zero-price"),
+                        new PayPalItem("sample item #3 with a longer name", 6, new BigDecimal("37.99"),
+                                "SGD", "sku-33333")
+                };
+        BigDecimal subtotal = PayPalItem.getItemTotal(items);
+        BigDecimal shipping = new BigDecimal("1.5");
+        BigDecimal tax = new BigDecimal("7");
+        PayPalPaymentDetails paymentDetails = new PayPalPaymentDetails(shipping, subtotal, tax);
+        BigDecimal amount = subtotal.add(shipping).add(tax);
+        PayPalPayment payment = new PayPalPayment(amount, "SGD", "sample item", paymentIntent);
+        payment.items(items).paymentDetails(paymentDetails);
+
+        //--- set other optional fields like invoice_number, custom field, and soft_descriptor
+        payment.custom("This is text that will be associated with the payment that the app can use.");
+
+        return payment;
     }
 
     @Override

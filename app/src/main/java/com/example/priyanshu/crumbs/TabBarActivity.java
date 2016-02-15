@@ -270,6 +270,8 @@ public class TabBarActivity extends TabActivity implements ViewPagerEx.OnPageCha
 
     public void openPayment(View view) {
         Intent in= new Intent(this, MenuSelect.class);
+        in.putExtra("RESTNAME", restName.getText().toString());
+        Log.v("BOBEY", restName.getText().toString());
         startActivity(in);
     }
 
