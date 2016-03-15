@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.priyanshu.crumbs.MainActivity"
-    tools:showIn="@layout/activity_main">
-
+    tools:context="com.example.priyanshu.crumbs.MainActivity">
     <FrameLayout
         android:id="@android:id/tabcontent"
         android:layout_width="match_parent"
