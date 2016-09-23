@@ -18,3 +18,14 @@ Steps to run application :
 - Move file onto phone.
 - Install and enjoy.
 
+# Screenshots
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/1.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/2.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/3.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/4.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/5.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/6.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/7.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/8.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/9.png)  
+![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/10.png)  
