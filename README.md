@@ -1,5 +1,5 @@
 # Crumbs
-*-Developed during CEC-Accenture Hackathon. Secured 1st Place.* 
+***Disclaimer*** *- This repo is no longer maintained and was developed during CEC-Accenture Hackathon 2015-16. Secured 1st Place.*
 
 ![Crumbs](https://github.com/ShantanuKamath/Crumbs/blob/master/Images/crumbs.png)  
 
@@ -7,13 +7,15 @@ A native android application that aimed revolutionising the the idea of ordering
 The application was a solution to the problem of splitting bills and recording debts. These tasks had become a pain that was to be dealt after almost after every meal that was delivered.  
 With the application, you have the same experience of ordering meals together without the woes of the tasks to follow.
 
-APIs Integrated :
+APIs Integrated:
+
 - Facebook for login & friends list.
 - Twitter for login.
 - PayPal for mode of Payment.
 - Locu for Restaurants and Menu Listing.
 
-Steps to run application :
+Steps to run application:
+
 - Download Crumbs.apk file.
 - Move file onto phone.
 - Install and enjoy.
